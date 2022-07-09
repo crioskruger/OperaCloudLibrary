@@ -1,0 +1,12 @@
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\bin\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.deps.json
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\bin\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.dll
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\bin\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.pdb
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.csproj.AssemblyReference.cache
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.GeneratedMSBuildEditorConfig.editorconfig
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.AssemblyInfoInputs.cache
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.AssemblyInfo.cs
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.csproj.CoreCompileInputs.cache
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.dll
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\refint\OperaCloudLibrary.dll
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\OperaCloudLibrary.pdb
+F:\GitHub\OperaCloudLibrary\OperaCloudLibrary\obj\Debug\net6.0-windows10.0.17763.0\ref\OperaCloudLibrary.dll

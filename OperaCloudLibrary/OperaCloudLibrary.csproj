@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="OperaCloud.Profiles.Client\" />
+    <Folder Include="OperaCloud.PAR.Client\" />
+    <Folder Include="OperaCloud.LOV.Client\" />
+    <Folder Include="OperaCloud.Oauth.Client\" />
+    <Folder Include="OperaCloud.Customer.Client\" />
+    <Folder Include="OperaCloud.Inventory.Client\" />
+    <Folder Include="OperaCloud.Reservas.Client\Controller\" />
+  </ItemGroup>
+
+</Project>

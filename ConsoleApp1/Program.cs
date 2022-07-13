@@ -16,7 +16,8 @@ try
 
     ConsoleApp1.GetReservationApp reservations = new ConsoleApp1.GetReservationApp();
     //await reservations.ObtenerReservationsAsync();
-    await reservations.CrearReservation();
+    //await reservations.CrearReservation();
+    await reservations.GetReservationById();
 
     Console.ReadKey();
 

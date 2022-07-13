@@ -91,7 +91,7 @@ namespace ConsoleApp1
             amountType.ShareDistributionInstruction = ShareDistributionInstructionType.Full;
             amountType.Total = new TotalType { AmountBeforeTax = 180000, CurrencyCode = "CLP" };
             amountType.Start = DateTimeOffset.Now;
-            amountType.End = DateTimeOffset.Now.AddDays(7);
+            amountType.End = DateTimeOffset.Now.AddDays(30);
             amountTypes.Add(amountType);
 
             roomRateType.Rates = new RatesType 
@@ -106,7 +106,7 @@ namespace ConsoleApp1
             roomRateType.SourceCode = "DAOC";
             roomRateType.SourceCodeDescription = "DAOC";
             roomRateType.Start = DateTimeOffset.Now;
-            roomRateType.End = DateTimeOffset.Now.AddDays(7);
+            roomRateType.End = DateTimeOffset.Now.AddDays(30);
             roomRateType.SuppressRate = true;
             roomRateType.NumberOfUnits = 1;
             roomRateType.PseudoRoom = false;
@@ -121,15 +121,16 @@ namespace ConsoleApp1
             roomStayType.RoomRates = roomRates;
 
             roomStayType.GuestCounts = new GuestCountsType { Adults = 2, Children = 0 };
-            roomStayType.ArrivalDate = DateTimeOffset.Now.AddDays(2);
-            roomStayType.DepartureDate = DateTimeOffset.Now.AddDays(4);
-            roomStayType.Guarantee = new ResGuaranteeType { GuaranteeCode = "6PM", ShortDescription = "6PM Hold" };
+            roomStayType.ArrivalDate = DateTimeOffset.Now.AddDays(15);
+            roomStayType.DepartureDate = DateTimeOffset.Now.AddDays(16);
+            roomStayType.Guarantee = new ResGuaranteeType { GuaranteeCode = "OO-12340-678966", ShortDescription = "orden de compra" };
             roomStayType.RoomNumberLocked = false;
             roomStayType.PrintRate = false;
             
             newReserva.RoomStay = roomStayType;
             // FIN ASIGNACION DE HABITACION
 
+            // PROFILE DE CLIENTE(s) PARA LA RESERVA
             ProfileInfo profileInfo = new ProfileInfo();
             profileInfo.Profile = new ProfileType { Customer = customer };
 
@@ -138,10 +139,9 @@ namespace ConsoleApp1
             clienteReserva.ProfileInfo = profileInfo;
             clienteReserva.Primary = true;
             clientesReserva.Add(clienteReserva);
-
-            //profile de clientes de la reserva
             newReserva.ReservationGuests = clientesReserva;
 
+            // METODO DE PAGO
             ReservationPaymentMethodType metodoDePago = new ReservationPaymentMethodType();
             metodoDePago.PaymentMethod = "CASH";
             metodoDePago.FolioView = 1;
@@ -149,13 +149,13 @@ namespace ConsoleApp1
             reservaMetodoDePago.Add(metodoDePago);
             newReserva.ReservationPaymentMethods = reservaMetodoDePago;
 
-            // Comentarios de la reserva
+            // COMENTARIOS ASOCIADOS A LA RESERVA
             ICollection<CommentInfoType> commentInfoTypes = new List<CommentInfoType>();
             CommentInfoType commentInfoType = new CommentInfoType 
             { 
                 Comment = new CommentType 
                 { 
-                    Text = new FormattedTextTextType { Value = "Comentario hacia la habitación", Language = "E" },
+                    Text = new FormattedTextTextType { Value = "por favor necesitamos una cuna.", Language = "E" },
                      CommentTitle = "Notas Generales",
                      NotificationLocation = "RESERVATION",
                      Type = "GEN",
@@ -166,15 +166,8 @@ namespace ConsoleApp1
             newReserva.Comments = commentInfoTypes;
 
 
-            //var profileType = new ProfileType { Customer = customer };
-            //ICollection<ReservationProfileType> reservationProfiles = new List<ReservationProfileType>();
-            //var reservationProfile = new ReservationProfileType { Profile = profileType, ReservationProfileType1 = ResProfileTypeType.Guest };
-            //reservationProfiles.Add(reservationProfile);
-            //roomRateType.StayProfiles = reservationProfiles;
-
-
+            // OTRAS PROPIEDADES DE LA RESERVA
             newReserva.ReservationStatus = PMS_ResStatusType.Reserved;
-
             newReserva.AdvanceCheckIn = new AdvanceCheckInType { AdvanceCheckedIn = false };
             newReserva.AllowMobileCheckout = false;
             newReserva.AllowMobileViewFolio = false;
@@ -184,7 +177,7 @@ namespace ConsoleApp1
             newReserva.OptedForCommunication = false;
             newReserva.SharedGuests = new ResSharedGuestListType();
             
-            newReserva.Waitlist = new WaitlistResType();
+            //newReserva.Waitlist = new WaitlistResType();
             newReserva.WalkIn = false;
             newReserva.PrintRate = false;
             newReserva.PreRegistered = false;
@@ -192,6 +185,8 @@ namespace ConsoleApp1
             newReserva.AllowAutoCheckin = false;
             newReserva.AllowPreRegistration = false;
 
+
+            // SE ADJUNTA LA RESERVA A UNA LISTA DE RESERVAS
             listaDeReservas.Add(newReserva);
             reservationsToCreated.Reservation = listaDeReservas;
             reservaContainer.Reservations = reservationsToCreated;
@@ -212,6 +207,27 @@ namespace ConsoleApp1
             else
                 Console.WriteLine($"{res.Links.Count} links.");
 
+        }
+
+        public async Task GetReservationById()
+        {
+            Console.WriteLine("Obteniendo autorización...");
+            var tokenApp = new ConsoleApp1.GetTokenApp();
+            var tokenBearer = await tokenApp.ObtenerTokenAsync();
+
+            IEnumerable<Anonymous16> fetchInstructions = new Anonymous16[] { };
+            fetchInstructions.Append<Anonymous16>(Anonymous16.Reservation);
+
+            IEnumerable<Anonymous17> allowedActions = new Anonymous17[] { };
+            allowedActions.Append<Anonymous17>(Anonymous17.EnrollInProgress);
+
+            OperaCloud.Reservas.Client client = new OperaCloud.Reservas.Client(url_base);
+            var res = await client.GetReservationAsync("76002", hotelId, fetchInstructions, allowedActions, tokenBearer, app_key, hotelId, "GNQ-API", "es-cl");
+
+            if (res == null)
+                Console.WriteLine("Reservations Null");
+            else
+                Console.WriteLine($"{res.Links.Count} links.");
         }
 
         //public async Task CrearReservation2()

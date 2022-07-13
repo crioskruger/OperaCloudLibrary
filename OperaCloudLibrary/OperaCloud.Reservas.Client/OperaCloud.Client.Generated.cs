@@ -408,19 +408,19 @@ namespace OperaCloud.Reservas
             }
             if (arrivalEndDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalEndDate") + "=").Append(System.Uri.EscapeDataString(arrivalEndDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalEndDate") + "=").Append(System.Uri.EscapeDataString(arrivalEndDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (arrivalStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalStartDate") + "=").Append(System.Uri.EscapeDataString(arrivalStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalStartDate") + "=").Append(System.Uri.EscapeDataString(arrivalStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (departureEndDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("departureEndDate") + "=").Append(System.Uri.EscapeDataString(departureEndDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("departureEndDate") + "=").Append(System.Uri.EscapeDataString(departureEndDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (departureStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("departureStartDate") + "=").Append(System.Uri.EscapeDataString(departureStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("departureStartDate") + "=").Append(System.Uri.EscapeDataString(departureStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (expectedArrivalStartTime != null)
             {
@@ -524,7 +524,7 @@ namespace OperaCloud.Reservas
             }
             if (cancelledOn != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("cancelledOn") + "=").Append(System.Uri.EscapeDataString(cancelledOn.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("cancelledOn") + "=").Append(System.Uri.EscapeDataString(cancelledOn.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (ratePlanCodes != null)
             {
@@ -700,7 +700,7 @@ namespace OperaCloud.Reservas
             }
             if (stayDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("stayDate") + "=").Append(System.Uri.EscapeDataString(stayDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("stayDate") + "=").Append(System.Uri.EscapeDataString(stayDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (roomRoutingId != null)
             {
@@ -1405,27 +1405,27 @@ namespace OperaCloud.Reservas
             }
             if (arrivalEndDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalEndDate") + "=").Append(System.Uri.EscapeDataString(arrivalEndDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalEndDate") + "=").Append(System.Uri.EscapeDataString(arrivalEndDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (arrivalStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalStartDate") + "=").Append(System.Uri.EscapeDataString(arrivalStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalStartDate") + "=").Append(System.Uri.EscapeDataString(arrivalStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (departureEndDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("departureEndDate") + "=").Append(System.Uri.EscapeDataString(departureEndDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("departureEndDate") + "=").Append(System.Uri.EscapeDataString(departureEndDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (departureStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("departureStartDate") + "=").Append(System.Uri.EscapeDataString(departureStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("departureStartDate") + "=").Append(System.Uri.EscapeDataString(departureStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (stayOnStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("stayOnStartDate") + "=").Append(System.Uri.EscapeDataString(stayOnStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("stayOnStartDate") + "=").Append(System.Uri.EscapeDataString(stayOnStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (createdOnStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("createdOnStartDate") + "=").Append(System.Uri.EscapeDataString(createdOnStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("createdOnStartDate") + "=").Append(System.Uri.EscapeDataString(createdOnStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (expectedArrivalEndTime != null)
             {
@@ -1541,7 +1541,7 @@ namespace OperaCloud.Reservas
             }
             if (cancelledOn != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("cancelledOn") + "=").Append(System.Uri.EscapeDataString(cancelledOn.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("cancelledOn") + "=").Append(System.Uri.EscapeDataString(cancelledOn.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (ratePlanCodes != null)
             {
@@ -1733,7 +1733,7 @@ namespace OperaCloud.Reservas
             }
             if (stayDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("stayDate") + "=").Append(System.Uri.EscapeDataString(stayDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("stayDate") + "=").Append(System.Uri.EscapeDataString(stayDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (roomRoutingId != null)
             {
@@ -1830,7 +1830,8 @@ namespace OperaCloud.Reservas
 
                     if (authorization == null)
                         throw new System.ArgumentNullException("authorization");
-                    request_.Headers.TryAddWithoutValidation("authorization", ConvertToString(authorization, System.Globalization.CultureInfo.InvariantCulture));
+                    //request_.Headers.TryAddWithoutValidation("authorization", ConvertToString(authorization, System.Globalization.CultureInfo.InvariantCulture));
+                    request_.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", authorization);
 
                     if (x_app_key == null)
                         throw new System.ArgumentNullException("x_app_key");
@@ -2517,11 +2518,11 @@ namespace OperaCloud.Reservas
             }
             if (criteriaStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("criteriaStartDate") + "=").Append(System.Uri.EscapeDataString(criteriaStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("criteriaStartDate") + "=").Append(System.Uri.EscapeDataString(criteriaStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (criteriaEndDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("criteriaEndDate") + "=").Append(System.Uri.EscapeDataString(criteriaEndDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("criteriaEndDate") + "=").Append(System.Uri.EscapeDataString(criteriaEndDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (adults != null)
             {
@@ -2557,7 +2558,7 @@ namespace OperaCloud.Reservas
             }
             if (detailDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("detailDate") + "=").Append(System.Uri.EscapeDataString(detailDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("detailDate") + "=").Append(System.Uri.EscapeDataString(detailDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (blockId != null)
             {
@@ -2589,11 +2590,11 @@ namespace OperaCloud.Reservas
             }
             if (effectiveRateEnd != null)
             {
-                foreach (var item_ in effectiveRateEnd) { urlBuilder_.Append(System.Uri.EscapeDataString("effectiveRateEnd") + "=").Append(System.Uri.EscapeDataString(item_.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+                foreach (var item_ in effectiveRateEnd) { urlBuilder_.Append(System.Uri.EscapeDataString("effectiveRateEnd") + "=").Append(System.Uri.EscapeDataString(item_.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             }
             if (effectiveRateStart != null)
             {
-                foreach (var item_ in effectiveRateStart) { urlBuilder_.Append(System.Uri.EscapeDataString("effectiveRateStart") + "=").Append(System.Uri.EscapeDataString(item_.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+                foreach (var item_ in effectiveRateStart) { urlBuilder_.Append(System.Uri.EscapeDataString("effectiveRateStart") + "=").Append(System.Uri.EscapeDataString(item_.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             }
             if (roomType != null)
             {
@@ -2871,7 +2872,8 @@ namespace OperaCloud.Reservas
 
                     if (authorization == null)
                         throw new System.ArgumentNullException("authorization");
-                    request_.Headers.TryAddWithoutValidation("authorization", ConvertToString(authorization, System.Globalization.CultureInfo.InvariantCulture));
+                    //request_.Headers.TryAddWithoutValidation("authorization", ConvertToString(authorization, System.Globalization.CultureInfo.InvariantCulture));
+                    request_.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", authorization);
 
                     if (x_app_key == null)
                         throw new System.ArgumentNullException("x_app_key");
@@ -3641,7 +3643,7 @@ namespace OperaCloud.Reservas
             }
             if (expirationDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("expirationDate") + "=").Append(System.Uri.EscapeDataString(expirationDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("expirationDate") + "=").Append(System.Uri.EscapeDataString(expirationDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (expirationDateExpired != null)
             {
@@ -3773,7 +3775,7 @@ namespace OperaCloud.Reservas
             }
             if (emailFolioPurgeDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("emailFolioPurgeDate") + "=").Append(System.Uri.EscapeDataString(emailFolioPurgeDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("emailFolioPurgeDate") + "=").Append(System.Uri.EscapeDataString(emailFolioPurgeDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (emailFolioType != null)
             {
@@ -4532,19 +4534,19 @@ namespace OperaCloud.Reservas
             }
             if (arrivalEndDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalEndDate") + "=").Append(System.Uri.EscapeDataString(arrivalEndDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalEndDate") + "=").Append(System.Uri.EscapeDataString(arrivalEndDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (arrivalStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalStartDate") + "=").Append(System.Uri.EscapeDataString(arrivalStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("arrivalStartDate") + "=").Append(System.Uri.EscapeDataString(arrivalStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (departureEndDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("departureEndDate") + "=").Append(System.Uri.EscapeDataString(departureEndDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("departureEndDate") + "=").Append(System.Uri.EscapeDataString(departureEndDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (departureStartDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("departureStartDate") + "=").Append(System.Uri.EscapeDataString(departureStartDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("departureStartDate") + "=").Append(System.Uri.EscapeDataString(departureStartDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (expectedArrivalStartTime != null)
             {
@@ -4648,7 +4650,7 @@ namespace OperaCloud.Reservas
             }
             if (cancelledOn != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("cancelledOn") + "=").Append(System.Uri.EscapeDataString(cancelledOn.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("cancelledOn") + "=").Append(System.Uri.EscapeDataString(cancelledOn.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (ratePlanCodes != null)
             {
@@ -4824,7 +4826,7 @@ namespace OperaCloud.Reservas
             }
             if (stayDate != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("stayDate") + "=").Append(System.Uri.EscapeDataString(stayDate.Value.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("stayDate") + "=").Append(System.Uri.EscapeDataString(stayDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (roomRoutingId != null)
             {
@@ -5179,11 +5181,11 @@ namespace OperaCloud.Reservas
             }
             if (requestedReportsTypeEndDate != null)
             {
-                foreach (var item_ in requestedReportsTypeEndDate) { urlBuilder_.Append(System.Uri.EscapeDataString("requestedReportsTypeEndDate") + "=").Append(System.Uri.EscapeDataString(item_.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+                foreach (var item_ in requestedReportsTypeEndDate) { urlBuilder_.Append(System.Uri.EscapeDataString("requestedReportsTypeEndDate") + "=").Append(System.Uri.EscapeDataString(item_.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             }
             if (fiscalDate != null)
             {
-                foreach (var item_ in fiscalDate) { urlBuilder_.Append(System.Uri.EscapeDataString("fiscalDate") + "=").Append(System.Uri.EscapeDataString(item_.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+                foreach (var item_ in fiscalDate) { urlBuilder_.Append(System.Uri.EscapeDataString("fiscalDate") + "=").Append(System.Uri.EscapeDataString(item_.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             }
             if (reportCode != null)
             {
@@ -5191,7 +5193,7 @@ namespace OperaCloud.Reservas
             }
             if (requestedReportsTypeStartDate != null)
             {
-                foreach (var item_ in requestedReportsTypeStartDate) { urlBuilder_.Append(System.Uri.EscapeDataString("requestedReportsTypeStartDate") + "=").Append(System.Uri.EscapeDataString(item_.ToString("MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+                foreach (var item_ in requestedReportsTypeStartDate) { urlBuilder_.Append(System.Uri.EscapeDataString("requestedReportsTypeStartDate") + "=").Append(System.Uri.EscapeDataString(item_.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             }
             if (requestedReportsTypeParameterName != null)
             {
@@ -27113,8 +27115,7 @@ namespace OperaCloud.Reservas
     {
         public DateFormatConverter()
         {
-            DateTimeFormat = "yyyy'-'MM'-'dd";
-            DateTimeStyles = System.Globalization.DateTimeStyles.AssumeLocal;
+            DateTimeFormat = "yyyy-MM-dd";
         }
     }
 

@@ -16,135 +16,135 @@ namespace ConsoleApp1
 
         public async Task ObtenerGuestProfileAsync()
         {
-            OperaCloud.Customer.Client.Client client = new OperaCloud.Customer.Client.Client(url_base);
+            //OperaCloud.Customer.Client.Client client = new OperaCloud.Customer.Client.Client(url_base);
 
-            ICollection<Anonymous5> anonymous = new List<Anonymous5>();
-            Anonymous5 anonymous5 = Anonymous5.Profile;
+            //ICollection<Anonymous5> anonymous = new List<Anonymous5>();
+            //Anonymous5 anonymous5 = Anonymous5.Profile;
             
-            anonymous.Add(anonymous5);
+            //anonymous.Add(anonymous5);
 
-            try
-            {
-                //Se usa un Try Catch ya que cuando el GuestProfile no existe la llamada retorna un 204(NoContent) http error
-                var res = await client.GetGuestProfileAsync("107540865", anonymous, tokenBearer, app_key, hotelId, "GNQ-API", "en-us");
+            //try
+            //{
+            //    //Se usa un Try Catch ya que cuando el GuestProfile no existe la llamada retorna un 204(NoContent) http error
+            //    var res = await client.GetGuestProfileAsync("107540865", anonymous, tokenBearer, app_key, hotelId, "GNQ-API", "en-us");
 
-                if (res == null)
-                    Console.WriteLine("Reservations Null");
-                else
-                    Console.WriteLine($"{res.Links.Count} Links.");
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            //    if (res == null)
+            //        Console.WriteLine("Reservations Null");
+            //    else
+            //        Console.WriteLine($"{res.Links.Count} Links.");
+            //}
+            //catch(Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
             
         }
 
         public async Task CrearGuestProfileAsync()
         {
-            OperaCloud.Customer.Client.Client client = new OperaCloud.Customer.Client.Client(url_base);
+            //OperaCloud.Customer.Client.Client client = new OperaCloud.Customer.Client.Client(url_base);
 
-            Profile2 profile = new Profile2();
+            //Profile2 profile = new Profile2();
 
-            UniqueID_Type uniqueID_Type = new UniqueID_Type { Id = "10754086-5", Type = "RUT" };
-            ProfileIdList profileIdList = new ProfileIdList();
-            profileIdList.Add(uniqueID_Type);
+            //UniqueID_Type uniqueID_Type = new UniqueID_Type { Id = "10754086-5", Type = "RUT" };
+            //ProfileIdList profileIdList = new ProfileIdList();
+            //profileIdList.Add(uniqueID_Type);
 
-            //profile.ProfileIdList = profileIdList;
+            ////profile.ProfileIdList = profileIdList;
 
-            profile.ExternalReferences = new ExternalReferencesType();
-            profile.ExternalReferences.Add(new ExternalReferenceType { Id = "9" });
+            //profile.ExternalReferences = new ExternalReferencesType();
+            //profile.ExternalReferences.Add(new ExternalReferenceType { Id = "9" });
 
-            #region Crea un ProfileType del cliente
+            //#region Crea un ProfileType del cliente
 
-            ////Se crea al cliente.
+            //////Se crea al cliente.
 
-            //var personTypes = new List<PersonNameType>();
+            ////var personTypes = new List<PersonNameType>();
+            ////var personType = new PersonNameType();
+            ////personType.Surname = "Vilches";
+            ////personType.Salutation = "";
+            ////personType.GivenName = "Rogelio";
+            ////personType.Language = "es-CL";
+            ////personType.MiddleName = "";
+            ////personType.NamePrefix = "Sr";
+            ////personType.NameTitle = "";
+            ////personType.Salutation = "Rogelius";
+
+            ////var customer = new CustomerType();
+            ////customer.PersonName = 
+
+            ////profile.ProfileDetails = new ProfileType
+            ////{
+            ////    Customer = new CustomerType { }
+            ////};
+
+
+            //ICollection<PersonNameType> personTypes = new List<PersonNameType>();
             //var personType = new PersonNameType();
             //personType.Surname = "Vilches";
-            //personType.Salutation = "";
+            ////personType.Salutation = "";
             //personType.GivenName = "Rogelio";
-            //personType.Language = "es-CL";
-            //personType.MiddleName = "";
-            //personType.NamePrefix = "Sr";
-            //personType.NameTitle = "";
-            //personType.Salutation = "Rogelius";
+            ////personType.Language = "es-CL";
+            ////personType.MiddleName = "";
+            ////personType.NamePrefix = "Sr";
+            ////personType.NameTitle = "";
+            ////personType.Salutation = "Rogelius";
+            ////personType.NameType = PersonNameTypeType.Primary;
+            //personTypes.Add(personType);
 
             //var customer = new CustomerType();
-            //customer.PersonName = 
+            //customer.PersonName = personTypes;
+            ////customer.CitizenCountry = new CountryNameType { Code = "CL", Value = "Chile" };
 
-            //profile.ProfileDetails = new ProfileType
+            //// IDENTIFICACION DEL CLIENTE
+            //ICollection<IdentificationInfoType> infoTypes = new List<IdentificationInfoType>();
+            //IdentificationInfoType identificationInfoType = new IdentificationInfoType();
+            //IdentificationType identificationType = new IdentificationType();
+            //identificationType.IdType = "RUT";
+            //identificationType.IdNumber = "10754086-5";
+            //identificationType.IdNumberMasked = "10754086-5";
+            //identificationType.IssuedCountry = "Chile";
+            //infoTypes.Add(identificationInfoType);
+
+            //Identifications identifications = new Identifications();
+            //identifications.IdentificationInfo = infoTypes;
+
+
+            ////customer.Identifications = identifications;
+
+            ////customer.BirthDate = DateTime.Now.AddYears(-50);
+            //customer.Gender = CustomerTypeGender.Male;
+            ////customer.Language = "es-CL";
+            ////customer.Nationality = "CL";
+            ////customer.NationalityDescription = "Chilena";
+            ////customer.VipDescription = "Mi VIP Descripción";
+            ////customer.VipStatus = "VipStatus";
+
+            //ICollection<EmailInfoType> emailInfoTypes = new List<EmailInfoType>();
+            //var emailInfoType = new EmailInfoType();
+            //emailInfoType.Email = new EmailType { EmailAddress = "rogelio.vilches@gmail.com" };
+
+            //emailInfoTypes.Add(emailInfoType);
+
+            //var profileType = new ProfileType
             //{
-            //    Customer = new CustomerType { }
+            //    Customer = customer,
+            //    Emails = new Emails2 { EmailInfo = emailInfoTypes },
+            //    StatusCode = ProfileStatusType.Active
             //};
 
 
-            ICollection<PersonNameType> personTypes = new List<PersonNameType>();
-            var personType = new PersonNameType();
-            personType.Surname = "Vilches";
-            //personType.Salutation = "";
-            personType.GivenName = "Rogelio";
-            //personType.Language = "es-CL";
-            //personType.MiddleName = "";
-            //personType.NamePrefix = "Sr";
-            //personType.NameTitle = "";
-            //personType.Salutation = "Rogelius";
-            //personType.NameType = PersonNameTypeType.Primary;
-            personTypes.Add(personType);
+            //#endregion
 
-            var customer = new CustomerType();
-            customer.PersonName = personTypes;
-            //customer.CitizenCountry = new CountryNameType { Code = "CL", Value = "Chile" };
-
-            // IDENTIFICACION DEL CLIENTE
-            ICollection<IdentificationInfoType> infoTypes = new List<IdentificationInfoType>();
-            IdentificationInfoType identificationInfoType = new IdentificationInfoType();
-            IdentificationType identificationType = new IdentificationType();
-            identificationType.IdType = "RUT";
-            identificationType.IdNumber = "10754086-5";
-            identificationType.IdNumberMasked = "10754086-5";
-            identificationType.IssuedCountry = "Chile";
-            infoTypes.Add(identificationInfoType);
-
-            Identifications identifications = new Identifications();
-            identifications.IdentificationInfo = infoTypes;
+            //profile.ProfileDetails = profileType;
 
 
-            //customer.Identifications = identifications;
+            //var res = await client.PostProfileAsync(profile, tokenBearer, app_key, hotelId, "GNQ-API", "en-us");
 
-            //customer.BirthDate = DateTime.Now.AddYears(-50);
-            customer.Gender = CustomerTypeGender.Male;
-            //customer.Language = "es-CL";
-            //customer.Nationality = "CL";
-            //customer.NationalityDescription = "Chilena";
-            //customer.VipDescription = "Mi VIP Descripción";
-            //customer.VipStatus = "VipStatus";
-
-            ICollection<EmailInfoType> emailInfoTypes = new List<EmailInfoType>();
-            var emailInfoType = new EmailInfoType();
-            emailInfoType.Email = new EmailType { EmailAddress = "rogelio.vilches@gmail.com" };
-
-            emailInfoTypes.Add(emailInfoType);
-
-            var profileType = new ProfileType
-            {
-                Customer = customer,
-                Emails = new Emails2 { EmailInfo = emailInfoTypes },
-                StatusCode = ProfileStatusType.Active
-            };
-
-
-            #endregion
-
-            profile.ProfileDetails = profileType;
-
-
-            var res = await client.PostProfileAsync(profile, tokenBearer, app_key, hotelId, "GNQ-API", "en-us");
-
-            if (res == null)
-                Console.WriteLine("Reservations Null");
-            else
-                Console.WriteLine($"{res.Links.Count} Links.");
+            //if (res == null)
+            //    Console.WriteLine("Reservations Null");
+            //else
+            //    Console.WriteLine($"{res.Links.Count} Links.");
         }
     }
 }

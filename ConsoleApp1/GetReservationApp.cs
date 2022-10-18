@@ -16,7 +16,9 @@ namespace ConsoleApp1
 
         public async Task ObtenerReservationsAsync()
         {
-            //IEnumerable<string> reservationIdList = new string[] { };
+            IEnumerable<string> reservationIdList = new string[] { "708811", "708835", "708153" };
+            IEnumerable<string> confirmationNumberList = new string[] { "708811", "708835", "708153" };
+            
             //IEnumerable<string> idExterno = new string[] { };
             //IEnumerable<string> cancel = new string[] { };
             //IEnumerable<string> externalRef = new string[] { };
@@ -30,7 +32,7 @@ namespace ConsoleApp1
 
             OperaCloud.Reservas.Client client = new OperaCloud.Reservas.Client(url_base);
 
-            OperaCloud.Reservas.ReservationsDetails res = await client.GetHotelReservationsAsync(hotelId, null, null, null, null, null, null, null, null, null, null, null,
+            OperaCloud.Reservas.ReservationsDetails res = await client.GetHotelReservationsAsync(hotelId, null, null, null, null, null, null, confirmationNumberList, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
@@ -222,7 +224,7 @@ namespace ConsoleApp1
             allowedActions.Append<Anonymous17>(Anonymous17.EnrollInProgress);
 
             OperaCloud.Reservas.Client client = new OperaCloud.Reservas.Client(url_base);
-            var res = await client.GetReservationAsync("76002", hotelId, fetchInstructions, allowedActions, tokenBearer, app_key, hotelId, "GNQ-API", "es-cl");
+            var res = await client.GetReservationAsync("78778", hotelId, fetchInstructions, allowedActions, tokenBearer, app_key, hotelId, "GNQ-API", "es-cl");
 
             if (res == null)
                 Console.WriteLine("Reservations Null");

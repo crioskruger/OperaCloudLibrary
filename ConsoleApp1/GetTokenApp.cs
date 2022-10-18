@@ -11,9 +11,9 @@ namespace ConsoleApp1
         {
             string token = string.Empty;
 
-            OperaCloud.Oauth.Client.Client client = new OperaCloud.Oauth.Client.Client("https://mtucn1uat.hospitality-api.us-ashburn-1.ocs.oc-test.com/oauth/v1/");
+            OperaCloud.Oauth.Client client = new OperaCloud.Oauth.Client("https://mtucn1uat.hospitality-api.us-ashburn-1.ocs.oc-test.com/oauth/v1/");
 
-            OperaCloud.Oauth.Client.OAuth2TokenResponse response = await client.GetTokenAsync(OperaCloud.Oauth.Client.Grant_type.Password, "RVILCHES", "Rosa101226aa.q", null, "742e1293-ce33-4d25-83d3-3f17af0a415b");
+            OperaCloud.Oauth.OAuth2TokenResponse response = await client.GetTokenAsync(OperaCloud.Oauth.Grant_type.Password, "RVILCHES", "Rosa101226aa.q", null, "742e1293-ce33-4d25-83d3-3f17af0a415b");
 
             if (response == null)
                 throw new Exception("Respuesta en null");

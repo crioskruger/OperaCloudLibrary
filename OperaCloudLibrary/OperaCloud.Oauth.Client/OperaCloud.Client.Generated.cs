@@ -13,10 +13,8 @@
 #pragma warning disable 3016 // Disable "CS3016 Arrays as attribute arguments is not CLS-compliant"
 #pragma warning disable 8603 // Disable "CS8603 Possible null reference return"
 
-namespace OperaCloud.Oauth.Client
+namespace OperaCloud.Oauth
 {
-    using System.Net.Http.Headers;
-    using System.Text;
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -44,7 +42,7 @@ namespace OperaCloud.Oauth.Client
             set { _baseUrl = value; }
         }
 
-        protected Newtonsoft.Json.JsonSerializerSettings JsonSerializerSettings { get { return _settings.Value; } }
+        public Newtonsoft.Json.JsonSerializerSettings JsonSerializerSettings { get { return _settings.Value; } }
 
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
 
@@ -61,7 +59,7 @@ namespace OperaCloud.Oauth.Client
         /// <param name="scope">Your desired scope to be included in the token.  This is an optional parameter and is reserved for future use.</param>
         /// <param name="x_app_key">Client or Partner’s Application Key</param>
         /// <returns>OK</returns>
-        /// <exception cref="OauthExeption">A server side error occurred.</exception>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<OAuth2TokenResponse> GetTokenAsync(Grant_type grant_type, string username, string password, string scope, string x_app_key)
         {
             return GetTokenAsync(grant_type, username, password, scope, x_app_key, System.Threading.CancellationToken.None);
@@ -77,7 +75,7 @@ namespace OperaCloud.Oauth.Client
         /// <param name="scope">Your desired scope to be included in the token.  This is an optional parameter and is reserved for future use.</param>
         /// <param name="x_app_key">Client or Partner’s Application Key</param>
         /// <returns>OK</returns>
-        /// <exception cref="OauthExeption">A server side error occurred.</exception>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<OAuth2TokenResponse> GetTokenAsync(Grant_type grant_type, string username, string password, string scope, string x_app_key, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -89,15 +87,12 @@ namespace OperaCloud.Oauth.Client
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    request_.Headers.Date = DateTime.UtcNow;
+                    var byteAuth = System.Text.Encoding.ASCII.GetBytes("RA_Client:vlcSn-8m-jfVfP68bW7v7jXK");
+                    request_.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteAuth));
 
                     if (x_app_key == null)
                         throw new System.ArgumentNullException("x_app_key");
                     request_.Headers.TryAddWithoutValidation("x-app-key", ConvertToString(x_app_key, System.Globalization.CultureInfo.InvariantCulture));
-
-                    var byteAuth = Encoding.ASCII.GetBytes("RA_Client:vlcSn-8m-jfVfP68bW7v7jXK");
-                    request_.Headers.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteAuth));
-
                     var keyValues_ = new System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<string, string>>();
                     if (grant_type == null)
                         throw new System.ArgumentNullException("grant_type");
@@ -139,7 +134,7 @@ namespace OperaCloud.Oauth.Client
                             var objectResponse_ = await ReadObjectResponseAsync<OAuth2TokenResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
-                                throw new OauthExeption("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
                             return objectResponse_.Object;
                         }
@@ -147,24 +142,24 @@ namespace OperaCloud.Oauth.Client
                         if (status_ == 400)
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new OauthExeption("Bad Request. This error is returned if the authentication information provided is not valid.", status_, responseText_, headers_, null);
+                            throw new ApiException("Bad Request. This error is returned if the authentication information provided is not valid.", status_, responseText_, headers_, null);
                         }
                         else
                         if (status_ == 401)
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new OauthExeption("Unauthorized. Invalid client ID, client secret, username, and/or password.", status_, responseText_, headers_, null);
+                            throw new ApiException("Unauthorized. Invalid client ID, client secret, username, and/or password.", status_, responseText_, headers_, null);
                         }
                         else
                         if (status_ == 403)
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new OauthExeption("Forbidden. This error is returned if the operation is not allowed for the request.", status_, responseText_, headers_, null);
+                            throw new ApiException("Forbidden. This error is returned if the operation is not allowed for the request.", status_, responseText_, headers_, null);
                         }
                         else
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new OauthExeption("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -214,7 +209,7 @@ namespace OperaCloud.Oauth.Client
                 catch (Newtonsoft.Json.JsonException exception)
                 {
                     var message = "Could not deserialize the response body string as " + typeof(T).FullName + ".";
-                    throw new OauthExeption(message, (int)response.StatusCode, responseText, headers, exception);
+                    throw new ApiException(message, (int)response.StatusCode, responseText, headers, exception);
                 }
             }
             else
@@ -233,7 +228,7 @@ namespace OperaCloud.Oauth.Client
                 catch (Newtonsoft.Json.JsonException exception)
                 {
                     var message = "Could not deserialize the response body stream as " + typeof(T).FullName + ".";
-                    throw new OauthExeption(message, (int)response.StatusCode, string.Empty, headers, exception);
+                    throw new ApiException(message, (int)response.StatusCode, string.Empty, headers, exception);
                 }
             }
         }
@@ -332,7 +327,7 @@ namespace OperaCloud.Oauth.Client
 
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class OauthExeption : System.Exception
+    public partial class ApiException : System.Exception
     {
         public int StatusCode { get; private set; }
 
@@ -340,7 +335,7 @@ namespace OperaCloud.Oauth.Client
 
         public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
 
-        public OauthExeption(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
+        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
             : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + ((response == null) ? "(null)" : response.Substring(0, response.Length >= 512 ? 512 : response.Length)), innerException)
         {
             StatusCode = statusCode;
@@ -355,11 +350,11 @@ namespace OperaCloud.Oauth.Client
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class OauthExeption<TResult> : OauthExeption
+    public partial class ApiException<TResult> : ApiException
     {
         public TResult Result { get; private set; }
 
-        public OauthExeption(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException)
+        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException)
             : base(message, statusCode, response, headers, innerException)
         {
             Result = result;
